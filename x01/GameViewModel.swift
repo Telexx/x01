@@ -9,12 +9,13 @@ import Foundation
 
 class GameViewModel: ObservableObject{
     @Published var invalidScore = false
+    @Published var gameWon = false
     let game : Game
     
     init(){
         let localPlayer = Player(name: "Alec Henderson", startingScore: 501)
         let otherLocalPlayer = Player(name: "Sophie Mansell", startingScore: 501)
-        game = Game(opponentType: .localPlayer, startingScore: 501, players: [localPlayer,otherLocalPlayer], localStart: true)
+        game = Game(opponentType: .localPlayer, startingScore: 501, players: [localPlayer,otherLocalPlayer], localStart: true, bestOf: 1)
     }
     
     func addScore(score:Int){
@@ -23,6 +24,8 @@ class GameViewModel: ObservableObject{
         }
         else{
             game.addScore(score: score)
+            print(gameWon)
+            gameWon = game.matchWon
         }
     }
     

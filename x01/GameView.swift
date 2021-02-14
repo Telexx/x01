@@ -16,29 +16,35 @@ struct GameView: View {
             Color.black.ignoresSafeArea()
         VStack{
             HStack{
-                ScoreView(score: String(viewModel.game.players[0].scoreRemaining), name: viewModel.game.players[0].name)
-                ScoreView(score: String(viewModel.game.players[1].scoreRemaining), name: viewModel.game.players[1].name)
+                ScoreView(score: String(viewModel.game.players[0].scoreRemaining), name: viewModel.game.players[0].name, average: Int(viewModel.game.players[0].average))
+                ScoreView(score: String(viewModel.game.players[1].scoreRemaining), name: viewModel.game.players[1].name, average: Int(viewModel.game.players[1].average))
                 Spacer()
             }
             Text(String(score)).padding()
                 .foregroundColor(.white)
                 .font(.title)
            KeyPadView()
-        }.alert(isPresented: $viewModel.invalidScore, content: {
+        }
+        .alert(isPresented: $viewModel.gameWon, content: {
+            Alert(title: Text("well done"), message: Text("game wom"), dismissButton: .default(Text("OK")))
+        })
+        .alert(isPresented: $viewModel.invalidScore, content: {
             Alert(title: Text("Error"), message: Text("Invalid Score Eneted"), dismissButton: .default(Text("OK")))
         })
         }
     }
     
     
-    fileprivate func ScoreView(score:String, name:String) -> some View {
+    fileprivate func ScoreView(score:String, name:String, average:Int) -> some View {
         return VStack(){
             Text(score)
                 .font(.system(size: 60))
                 .padding()
             Text(name)
-                .font(.system(size: 20
-                ))
+                .font(.system(size: 25))
+            Text("AVG: \(String(average))")
+                .font(.system(size: 20))
+                .padding()
         }
         .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/2.5, alignment: .top)
         .background(Color.green)

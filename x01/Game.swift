@@ -12,21 +12,35 @@ class Game{
     private var startingScore : Int
     var players: [Player]
     var turnIndex: Int
-    var gameWon:Bool{
+    var bestOf : Int
+    var legWon:Bool{
         if players[0].scoreRemaining == 0{
+            players[0].legs = players[0].legs+1
         return true
         }
         if players[1].scoreRemaining == 0{
+           players[1].legs = players[1].legs+1
         return true
         }
         return false
     }
     
+    var matchWon:Bool{
+        if players[0].legs == bestOf{
+            return true
+        }
+        if players[1].legs == bestOf{
+            return true
+        }
+        return false
+    }
     
-    init(opponentType:OpponentType, startingScore:Int, players:[Player], localStart:Bool){
+    
+    init(opponentType:OpponentType, startingScore:Int, players:[Player], localStart:Bool, bestOf:Int){
         self.opponentType = opponentType
         self.startingScore = startingScore
         self.players = players
+        self.bestOf = bestOf
         if localStart{
             turnIndex = 0
         }
@@ -69,6 +83,7 @@ enum OpponentType{
 
 
 class Player{
+    var legs = 0
     var name: String
     var startingScore: Int
     var scores = [Int]()
@@ -85,7 +100,12 @@ class Player{
     }
     
     var average: Double{
-        Double(totalScore/(scores.count))
+        if totalScore == 0 {
+            return 0
+        }
+        else{
+       return Double(totalScore/(scores.count))
+        }
     }
     
     func undoLastScore(){
