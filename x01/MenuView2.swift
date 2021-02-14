@@ -15,24 +15,37 @@
         NavigationView{
             ZStack{
                 LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "grad1")!), Color(UIColor(named: "grad2")!), Color(UIColor(named: "grad3")!)]), startPoint: .topTrailing, endPoint: .bottomLeading)
-                VStack(spacing: 20){
+                VStack(){
                     HStack{
-                        Spacer()
+                        Image(uiImage: viewModel.avatar)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 3)).padding()
+                            Spacer()
                         Button(action: {
                             print("Edit button was tapped")
                         }) {
                             Image(systemName: "text.justify")
-                        }.padding(.vertical,45)
+                        }.padding(.vertical,20)
                         .padding(.trailing,20)
                         .foregroundColor(.white)
                         
                     }
+                    .padding(.top, 30)
+                    Spacer()
                     HStack{
                         VStack{
+    
                             HStack{Text("Alec").font(.system(size: 60, weight: .semibold, design: .default)).foregroundColor(.white)
-                                Spacer()}
+                            //    Spacer()
+                                Spacer()
+                            }
                             HStack{Text("Henderson").font(.system(size: 50, weight: .semibold, design: .default)).foregroundColor(.white)
-                                Spacer()}
+                                Spacer()
+                                
+                            }
                         }.padding(.leading)
                         Spacer()
                     }
@@ -40,27 +53,28 @@
                         
                         VStack{
                             Text("Played").font(.system(size: 16, weight: .semibold, design: .default)).foregroundColor(.white)
-                            Text("949").font(.system(size: 35, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
+                            Text("949").font(.system(size: 29, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
                         }
                         VStack{
                             Text("Won").font(.system(size: 16, weight: .semibold, design: .default)).foregroundColor(.white)
-                            Text("785").font(.system(size: 35, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
+                            Text("785").font(.system(size: 29, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
                         }
                         VStack{
                             Text("Average").font(.system(size: 16, weight: .semibold, design: .default)).foregroundColor(.white)
-                            Text("97.84").font(.system(size: 35, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
+                            Text("97.84").font(.system(size: 28, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
                         }
                         
                     }.padding()
+                    .scaledToFill()
                     VStack (){
                         HStack{
-                            MenuButton(index: 1, text: "Play Computer", image: "desktopcomputer")
+                            MenuButton(index: 0, text: "Play Computer", image: "desktopcomputer")
                             MenuButton(index: 1, text: "Play Local", image: "person.fill")
    
                         }.padding(.bottom)
                         HStack{
-                            MenuButton(index: 1, text: "Play Online", image: "network")
-                            MenuButton(index: 1, text: "View Stats", image: "chart.bar.xaxis")
+                            MenuButton(index: 2, text: "Play Online", image: "network")
+                            MenuButton(index: 3, text: "View Stats", image: "chart.bar.xaxis")
   
                         }.padding(.bottom)
                     }.padding()
@@ -86,7 +100,7 @@
                .contentShape(Rectangle())
                 Spacer()
                 Image(systemName: image)
-                    .font(.system(size: 70, weight: .bold))
+                    .font(.system(size: 40, weight: .bold))
                     .padding()
                     
                 Spacer()
