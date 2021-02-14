@@ -54,13 +54,13 @@
                     }.padding()
                     VStack (){
                         HStack{
-                            MenuButton(index: 1, text: "Play Online")
-                            MenuButton(index: 1, text: "Play Online")
+                            MenuButton(index: 1, text: "Play Computer", image: "desktopcomputer")
+                            MenuButton(index: 1, text: "Play Local", image: "person.fill")
    
                         }.padding(.bottom)
                         HStack{
-                            MenuButton(index: 1, text: "Play Online")
-                            MenuButton(index: 1, text: "Play Online")
+                            MenuButton(index: 1, text: "Play Online", image: "network")
+                            MenuButton(index: 1, text: "View Stats", image: "chart.bar.xaxis")
   
                         }.padding(.bottom)
                     }.padding()
@@ -72,16 +72,25 @@
         }
     }
     
-    fileprivate func MenuButton(index:Int, text:String) -> some View {
+    fileprivate func MenuButton(index:Int, text:String, image:String) -> some View {
         return Button(action: {
             print("\(index) pressed.")
             
         }) {
+            VStack{
+                Spacer()
             Text(text)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .font(.headline)
+                .font(.system(size: 20, weight: .semibold, design: .default))
                .foregroundColor(Color.black)
-               .contentShape(Rectangle()) // Add this line
+               .contentShape(Rectangle())
+                Spacer()
+                Image(systemName: image)
+                    .font(.system(size: 70, weight: .bold))
+                    .padding()
+                    
+                Spacer()
+            }
         }
         .background(Color(.white))
         .cornerRadius(10)
