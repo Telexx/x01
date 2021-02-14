@@ -18,7 +18,7 @@ struct x01App: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: LoginViewModel())
+            ContentView(viewModel: LoginViewModel())   .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

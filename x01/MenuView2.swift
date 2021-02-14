@@ -117,12 +117,13 @@
   
                         }.padding(.bottom)
                     }.padding()
-                    
+                    .navigationViewStyle(StackNavigationViewStyle())
                     Spacer()
                             
                 }.navigationBarHidden(true)
+                
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
     
     fileprivate func MenuButton(index:Int, text:String, image:String) -> some View {

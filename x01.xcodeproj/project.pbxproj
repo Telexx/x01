@@ -59,6 +59,7 @@
 		B6078F8830CBF83F7F966FC5 /* Pods-x01Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x01Tests.release.xcconfig"; path = "Target Support Files/Pods-x01Tests/Pods-x01Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CF599E64F0EB56F292F580FF /* Pods_x01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E756542200627AFAF3EBD471 /* Pods-x01Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-x01Tests.debug.xcconfig"; path = "Target Support Files/Pods-x01Tests/Pods-x01Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA35B92125D9A09100BDE0DC /* x01.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = x01.entitlements; sourceTree = "<group>"; };
 		EA83154A25D0523300218E51 /* x01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = x01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA83154D25D0523300218E51 /* x01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = x01App.swift; sourceTree = "<group>"; };
 		EA83154F25D0523300218E51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 		EA83154C25D0523300218E51 /* x01 */ = {
 			isa = PBXGroup;
 			children = (
+				EA35B92125D9A09100BDE0DC /* x01.entitlements */,
 				EAE2F2A925D7255200E6B696 /* Firebase */,
 				EAE2F2A025D7251200E6B696 /* View */,
 				EAE2F29F25D7251000E6B696 /* ViewModel */,
@@ -658,6 +660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = x01/x01.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"x01/Preview Content\"";
 				DEVELOPMENT_TEAM = 4729388PSM;
@@ -670,6 +673,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = oddly.app.x01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -681,6 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = x01/x01.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"x01/Preview Content\"";
 				DEVELOPMENT_TEAM = 4729388PSM;
@@ -693,6 +698,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = oddly.app.x01;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

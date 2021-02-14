@@ -19,6 +19,7 @@ struct ContentView: View {
             ZStack{
                 NavigationLink(destination: MenuView2(viewModel: MenuViewModel())
                                 .navigationBarBackButtonHidden(true)
+                                .navigationViewStyle(StackNavigationViewStyle())
                                 .navigationBarTitle("")
                                 .navigationBarHidden(true), isActive: $viewModel.isLoggedIn) {Text("") }
                 
@@ -78,6 +79,7 @@ struct ContentView: View {
                     
                 }
             }.navigationBarTitle("")
+            .navigationViewStyle(StackNavigationViewStyle())
         }.alert(isPresented: $viewModel.loginError, content: {
             Alert(title: Text("Registration Error"), message: Text(viewModel.loginErrorText), dismissButton: .default(Text("OK")))
         })
