@@ -14,7 +14,45 @@
     var body: some View {
         NavigationView{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "grad1")!), Color(UIColor(named: "grad2")!), Color(UIColor(named: "grad3")!)]), startPoint: .topTrailing, endPoint: .bottomLeading)
+                NavigationLink(destination: SettingsView()
+                                .navigationBarItems(
+                                    leading:
+                                        Text("Settings")
+                                        .padding()
+                                        .foregroundColor(Color(.black)),
+                                    trailing: // Add trailing view
+                                        Image(uiImage: viewModel.avatar)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                        .edgesIgnoringSafeArea(.all)
+                                )
+                                .navigationBarTitleDisplayMode(.automatic)
+                                .edgesIgnoringSafeArea(.all)
+                               , isActive: $viewModel.didOpenSettings) {Text("") }
+                
+                NavigationLink(destination: GameSettingsView()
+                                .navigationBarItems(
+                                    leading:
+                                        Text("Game Setup")
+                                        .padding()
+                                        .foregroundColor(Color(.black)),
+                                    trailing: // Add trailing view
+                                        Image(uiImage: viewModel.avatar)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                        .edgesIgnoringSafeArea(.all)
+                                )
+                                .navigationBarTitleDisplayMode(.automatic)
+                                .edgesIgnoringSafeArea(.all)
+                               , isActive: $viewModel.didStartGameComputer) {Text("") }
+                
+                LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "grad1")!), Color(UIColor(named: "grad2")!), Color(UIColor(named: "grad3")!)]), startPoint: .topTrailing, endPoint: .bottomLeading).ignoresSafeArea()
                 VStack(){
                     HStack{
                         Image(uiImage: viewModel.avatar)
@@ -26,14 +64,15 @@
                             Spacer()
                         Button(action: {
                             print("Edit button was tapped")
+                            viewModel.didOpenSettings = true
                         }) {
                             Image(systemName: "text.justify")
-                        }.padding(.vertical,20)
+                        }
                         .padding(.trailing,20)
                         .foregroundColor(.white)
                         
                     }
-                    .padding(.top, 30)
+               
                     Spacer()
                     HStack{
                         VStack{
@@ -82,14 +121,14 @@
                     Spacer()
                             
                 }.navigationBarHidden(true)
-            }.ignoresSafeArea()
+            }
         }
     }
     
     fileprivate func MenuButton(index:Int, text:String, image:String) -> some View {
         return Button(action: {
             print("\(index) pressed.")
-            
+            viewModel.didTapMenuItem(item: index)
         }) {
             VStack{
                 Spacer()
@@ -97,11 +136,11 @@
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .font(.system(size: 20, weight: .semibold, design: .default))
                .foregroundColor(Color.black)
-               .contentShape(Rectangle())
+               //.contentShape()
                 Spacer()
                 Image(systemName: image)
                     .font(.system(size: 40, weight: .bold))
-                    .padding(.bottom, 50)
+                    .padding(.bottom)
                     
                 Spacer()
             }
