@@ -38,11 +38,11 @@
                     HStack{
                         VStack{
     
-                            HStack{Text("Alec").font(.system(size: 60, weight: .semibold, design: .default)).foregroundColor(.white)
+                            HStack{Text("Adrian").font(.system(size: 70, weight: .semibold, design: .default)).foregroundColor(.white)
                             //    Spacer()
                                 Spacer()
                             }
-                            HStack{Text("Henderson").font(.system(size: 50, weight: .semibold, design: .default)).foregroundColor(.white)
+                            HStack{Text("Lewis").font(.system(size: 50, weight: .semibold, design: .default)).foregroundColor(.white)
                                 Spacer()
                                 
                             }
@@ -53,15 +53,15 @@
                         
                         VStack{
                             Text("Played").font(.system(size: 16, weight: .semibold, design: .default)).foregroundColor(.white)
-                            Text("949").font(.system(size: 29, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
+                            Text("949").font(.system(size: 29, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top, 5)
                         }
                         VStack{
                             Text("Won").font(.system(size: 16, weight: .semibold, design: .default)).foregroundColor(.white)
-                            Text("785").font(.system(size: 29, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
+                            Text("785").font(.system(size: 29, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top,5)
                         }
                         VStack{
                             Text("Average").font(.system(size: 16, weight: .semibold, design: .default)).foregroundColor(.white)
-                            Text("97.84").font(.system(size: 28, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top)
+                            Text("97.84").font(.system(size: 28, weight: .heavy, design: .default)).foregroundColor(.white).padding(.top,5)
                         }
                         
                     }.padding()
@@ -101,7 +101,7 @@
                 Spacer()
                 Image(systemName: image)
                     .font(.system(size: 40, weight: .bold))
-                    .padding()
+                    .padding(.bottom, 50)
                     
                 Spacer()
             }
