@@ -11,7 +11,8 @@ class MenuViewModel: ObservableObject{
     let defaults = UserDefaults.standard
     private let firebase : FirebaseProtocol
     @Published var didStartGameComputer = false
-    @Published var avatar = UIImage()
+    @Published var didOpenSettings = false
+    @Published var avatar = UIImage(systemName: "person.circle.fill")!
     
     
     init (firebase : FirebaseProtocol = Firebase()){
@@ -30,6 +31,9 @@ class MenuViewModel: ObservableObject{
         case 0:
             print("item 0 selected")
             didStartGameComputer = true
+        case 4:
+            print("item 4 selected")
+            didOpenSettings = true
         default:
             return
         }

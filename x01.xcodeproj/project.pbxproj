@@ -19,6 +19,9 @@
 		EACC7D7125D93FA90027D897 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC7D7025D93FA90027D897 /* GameView.swift */; };
 		EACC7D9725D950B30027D897 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC7D9625D950B30027D897 /* MenuViewModel.swift */; };
 		EACC7D9C25D955600027D897 /* GameSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC7D9B25D955600027D897 /* GameSettingsView.swift */; };
+		EACC7DCC25D973F40027D897 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC7DCB25D973F40027D897 /* SettingsView.swift */; };
+		EACC7DD125D9759F0027D897 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC7DD025D9759F0027D897 /* EditProfileView.swift */; };
+		EACC7DD625D979AA0027D897 /* MenuView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACC7DD525D979AA0027D897 /* MenuView2.swift */; };
 		EAE2F27225D7233900E6B696 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAE2F27125D7233900E6B696 /* GoogleService-Info.plist */; };
 		EAE2F28F25D7246800E6B696 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE2F28E25D7246800E6B696 /* AppDelegate.swift */; };
 		EAE2F2A225D7252F00E6B696 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE2F2A125D7252F00E6B696 /* LoginViewModel.swift */; };
@@ -72,6 +75,9 @@
 		EACC7D7025D93FA90027D897 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		EACC7D9625D950B30027D897 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		EACC7D9B25D955600027D897 /* GameSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsView.swift; sourceTree = "<group>"; };
+		EACC7DCB25D973F40027D897 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EACC7DD025D9759F0027D897 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		EACC7DD525D979AA0027D897 /* MenuView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView2.swift; sourceTree = "<group>"; };
 		EAE2F27125D7233900E6B696 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAE2F28E25D7246800E6B696 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAE2F2A125D7252F00E6B696 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -203,10 +209,13 @@
 			isa = PBXGroup;
 			children = (
 				EAEFDEFB25D086490060C661 /* MenuView.swift */,
+				EACC7DD525D979AA0027D897 /* MenuView2.swift */,
+				EACC7DCB25D973F40027D897 /* SettingsView.swift */,
 				EA83154F25D0523300218E51 /* ContentView.swift */,
 				EACC7D6325D939810027D897 /* SignupView.swift */,
 				EACC7D7025D93FA90027D897 /* GameView.swift */,
 				EACC7D9B25D955600027D897 /* GameSettingsView.swift */,
+				EACC7DD025D9759F0027D897 /* EditProfileView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -480,12 +489,15 @@
 				EAE2F28F25D7246800E6B696 /* AppDelegate.swift in Sources */,
 				EA83155025D0523300218E51 /* ContentView.swift in Sources */,
 				EACC7D9725D950B30027D897 /* MenuViewModel.swift in Sources */,
+				EACC7DD625D979AA0027D897 /* MenuView2.swift in Sources */,
 				EAE2F2B025D725F100E6B696 /* FirebaseProtocol.swift in Sources */,
 				EACC7D7125D93FA90027D897 /* GameView.swift in Sources */,
 				EACC7D6425D939810027D897 /* SignupView.swift in Sources */,
 				EAEFDEFC25D086490060C661 /* MenuView.swift in Sources */,
 				EAE2F2A225D7252F00E6B696 /* LoginViewModel.swift in Sources */,
+				EACC7DCC25D973F40027D897 /* SettingsView.swift in Sources */,
 				EA83154E25D0523300218E51 /* x01App.swift in Sources */,
+				EACC7DD125D9759F0027D897 /* EditProfileView.swift in Sources */,
 				EACC7D9C25D955600027D897 /* GameSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

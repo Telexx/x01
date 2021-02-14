@@ -90,7 +90,7 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(viewModel: MenuViewModel())
+      GameView()
 
     }
 }

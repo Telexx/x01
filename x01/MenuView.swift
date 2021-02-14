@@ -11,12 +11,13 @@
     
     @ObservedObject var viewModel : MenuViewModel
     
+    
     fileprivate func MenuButton(title:String, index:Int) -> some View {
         return Button(title) {
             viewModel.didTapMenuItem(item: index)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.pink]), startPoint: .top, endPoint: .bottomLeading))
+        .background(Color(.red))
         .font(.system(size: 35, weight: .semibold, design: .default))
         .foregroundColor(.white)
         .cornerRadius(10)
@@ -24,8 +25,10 @@
     }
     
     var body: some View {
+
         NavigationView{
             ZStack{
+               
                 NavigationLink(destination: GameSettingsView()
                                 .navigationBarItems(
                                     leading:
@@ -44,6 +47,27 @@
                                 .navigationBarTitleDisplayMode(.automatic)
                                 .edgesIgnoringSafeArea(.all)
                                , isActive: $viewModel.didStartGameComputer) {Text("") }
+                
+                NavigationLink(destination: SettingsView()
+                                .navigationBarItems(
+                                    leading:
+                                        Text("Settings")
+                                        .padding()
+                                        .foregroundColor(Color(.black)),
+                                    trailing: // Add trailing view
+                                        Image(uiImage: viewModel.avatar)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                        .edgesIgnoringSafeArea(.all)
+                                )
+                                .navigationBarTitleDisplayMode(.automatic)
+                                .edgesIgnoringSafeArea(.all)
+                               , isActive: $viewModel.didOpenSettings) {Text("") }
+                
+                
                 VStack(){
                     Spacer()
                     MenuButton(title: "vs Computer", index: 0)
@@ -54,7 +78,8 @@
                     Spacer()
                     
                 }
-            }
+            }.background(Color(.lightGray))
+            .ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
             .navigationBarItems(
                 leading:
                     Text("Adrian Lewis (99.2)")
@@ -69,8 +94,10 @@
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.gray, lineWidth: 1))
             ).navigationBarTitleDisplayMode(.inline)
+ 
         }
-    }
+        }
+    
     func tap(hello:String){
     }
  }

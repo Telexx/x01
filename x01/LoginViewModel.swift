@@ -22,7 +22,7 @@ class LoginViewModel: ObservableObject{
     
     
     func login(username:String, password:String){
-        firebase.login(username: username, password: password) { [self] (result, error) in
+        firebase.login(username: "alecghenderson@gmail.com", password: "Radi0h34d") { [self] (result, error) in
             if error != nil{
                 loginError = true
                 loginErrorText = error!.localizedDescription

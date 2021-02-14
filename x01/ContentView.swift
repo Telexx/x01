@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View{
         NavigationView{
             ZStack{
-                NavigationLink(destination: MenuView(viewModel: MenuViewModel())
+                NavigationLink(destination: MenuView2(viewModel: MenuViewModel())
                                 .navigationBarBackButtonHidden(true)
                                 .navigationBarTitle("")
                                 .navigationBarHidden(true), isActive: $viewModel.isLoggedIn) {Text("") }
