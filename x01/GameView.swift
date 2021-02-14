@@ -9,18 +9,24 @@ import SwiftUI
 
 struct GameView: View {
     
+    @ObservedObject var viewModel : GameViewModel
+   @State private var score = ""
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
         VStack{
             HStack{
-                ScoreView(score: "501", name: "Alec Henderson")
-                ScoreView(score: "501", name: "Phil Taylor")
+                ScoreView(score: String(viewModel.game.players[0].scoreRemaining), name: viewModel.game.players[0].name)
+                ScoreView(score: String(viewModel.game.players[1].scoreRemaining), name: viewModel.game.players[1].name)
                 Spacer()
             }
-            Spacer()
+            Text(String(score)).padding()
+                .foregroundColor(.white)
+                .font(.title)
            KeyPadView()
-        }
+        }.alert(isPresented: $viewModel.invalidScore, content: {
+            Alert(title: Text("Error"), message: Text("Invalid Score Eneted"), dismissButton: .default(Text("OK")))
+        })
         }
     }
     
@@ -42,7 +48,18 @@ struct GameView: View {
     fileprivate func KeyPadButton(number:String) -> some View {
         return Button(action: {
             print("\(number) pressed.")
-            
+            if number.isNumeric{
+                score = score+number
+            }
+            else{
+                if number == "OK"{
+                    viewModel.addScore(score: Int(score) ?? 0)
+                    score = ""
+                }
+                if number == "C"{
+                    score = ""
+                }
+            }
         }) {
             Text(number)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -90,7 +107,7 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-      GameView()
+        GameView(viewModel: GameViewModel())
 
     }
 }

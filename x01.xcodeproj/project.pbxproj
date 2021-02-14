@@ -11,6 +11,8 @@
 		CDB3B9B5548158985830D53E /* Pods_x01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF599E64F0EB56F292F580FF /* Pods_x01.framework */; };
 		EA35B92925D9B4DD00BDE0DC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35B92825D9B4DD00BDE0DC /* Game.swift */; };
 		EA35B92E25D9B81100BDE0DC /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35B92D25D9B81100BDE0DC /* GameTests.swift */; };
+		EA35B93325D9C3A400BDE0DC /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35B93225D9C3A400BDE0DC /* GameViewModel.swift */; };
+		EA35B93825D9C64E00BDE0DC /* String+IsNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35B93725D9C64E00BDE0DC /* String+IsNumber.swift */; };
 		EA83154E25D0523300218E51 /* x01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83154D25D0523300218E51 /* x01App.swift */; };
 		EA83155025D0523300218E51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83154F25D0523300218E51 /* ContentView.swift */; };
 		EA83155225D0523400218E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA83155125D0523400218E51 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		EA35B92125D9A09100BDE0DC /* x01.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = x01.entitlements; sourceTree = "<group>"; };
 		EA35B92825D9B4DD00BDE0DC /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EA35B92D25D9B81100BDE0DC /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		EA35B93225D9C3A400BDE0DC /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		EA35B93725D9C64E00BDE0DC /* String+IsNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsNumber.swift"; sourceTree = "<group>"; };
 		EA83154A25D0523300218E51 /* x01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = x01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA83154D25D0523300218E51 /* x01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = x01App.swift; sourceTree = "<group>"; };
 		EA83154F25D0523300218E51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				EAE2F27125D7233900E6B696 /* GoogleService-Info.plist */,
 				EAE2F28E25D7246800E6B696 /* AppDelegate.swift */,
 				EA35B92825D9B4DD00BDE0DC /* Game.swift */,
+				EA35B93725D9C64E00BDE0DC /* String+IsNumber.swift */,
 			);
 			path = x01;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				EAE2F2A125D7252F00E6B696 /* LoginViewModel.swift */,
 				EACC7D9625D950B30027D897 /* MenuViewModel.swift */,
+				EA35B93225D9C3A400BDE0DC /* GameViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -497,12 +503,14 @@
 				EA35B92925D9B4DD00BDE0DC /* Game.swift in Sources */,
 				EAE2F28F25D7246800E6B696 /* AppDelegate.swift in Sources */,
 				EA83155025D0523300218E51 /* ContentView.swift in Sources */,
+				EA35B93325D9C3A400BDE0DC /* GameViewModel.swift in Sources */,
 				EACC7D9725D950B30027D897 /* MenuViewModel.swift in Sources */,
 				EACC7DD625D979AA0027D897 /* MenuView2.swift in Sources */,
 				EAE2F2B025D725F100E6B696 /* FirebaseProtocol.swift in Sources */,
 				EACC7D7125D93FA90027D897 /* GameView.swift in Sources */,
 				EACC7D6425D939810027D897 /* SignupView.swift in Sources */,
 				EAEFDEFC25D086490060C661 /* MenuView.swift in Sources */,
+				EA35B93825D9C64E00BDE0DC /* String+IsNumber.swift in Sources */,
 				EAE2F2A225D7252F00E6B696 /* LoginViewModel.swift in Sources */,
 				EACC7DCC25D973F40027D897 /* SettingsView.swift in Sources */,
 				EA83154E25D0523300218E51 /* x01App.swift in Sources */,

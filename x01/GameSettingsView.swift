@@ -13,10 +13,16 @@ struct GameSettingsView: View {
     @State private var playerThrowsFirst = true
     @State private var numberOfLegs = 7.0
     @State private var adaptiveAI = false
+    @State private var didStartGame = false
     let gameTypes = ["501", "301", "701", "1001"]
     let opponentLevels = [1,2,3,4,5,6,7,8,9,10]
     var body: some View {
         ZStack{
+            
+            NavigationLink(destination: GameView(viewModel: GameViewModel())
+                            .navigationBarTitleDisplayMode(.automatic)
+                           , isActive: $didStartGame) {Text("") }
+            
             Form {
                 Section(header: Text("GAME FORMAT")) {
                     Picker("Select starting score", selection: $selectedGameType){
@@ -44,7 +50,7 @@ struct GameSettingsView: View {
                 
                 Section {
                     Button("Start Game") {
-                        // activate theme!
+                        didStartGame = true
                     }
                 }
             }

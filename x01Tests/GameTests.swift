@@ -22,15 +22,15 @@ class GameTests: XCTestCase {
         let player1 = Player(name: "Alec Henderson", startingScore: 501)
         let player2 = Player(name: "Sophie Mansell", startingScore: 501)
         
-        _ = Game(opponentType: .computer, startingScore: 501, players: [player1,player2])
+        let game = Game(opponentType: .computer, startingScore: 501, players: [player1,player2], localStart: true)
+        game.addScore(score: 180)
+        game.addScore(score: 180)
+        game.addScore(score: 180)
+        game.addScore(score: 180)
+        game.addScore(score: 141)
+        XCTAssertTrue(game.gameWon == true)
         
-        
-        player1.addScore(score: 27)
-        player1.addScore(score: 66)
-        player1.addScore(score: 35)
-        print(player1.average)
-        dump(player1.scores)
-        XCTAssertTrue(player1.average == 42)
+
 
     }
 
