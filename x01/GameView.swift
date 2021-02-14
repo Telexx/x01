@@ -10,14 +10,14 @@ import SwiftUI
 struct GameView: View {
     
     @ObservedObject var viewModel : GameViewModel
-   @State private var score = ""
+   @State private var score = " "
     var body: some View {
         ZStack{
-            Color.black.ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "matchgrad1")!), Color(UIColor(named: "matchgrad2")!)]), startPoint: .topTrailing, endPoint: .bottomLeading).ignoresSafeArea()
         VStack{
             HStack{
-                ScoreView(score: String(viewModel.game.players[0].scoreRemaining), name: viewModel.game.players[0].name, average: Int(viewModel.game.players[0].average))
-                ScoreView(score: String(viewModel.game.players[1].scoreRemaining), name: viewModel.game.players[1].name, average: Int(viewModel.game.players[1].average))
+                ScoreView(score: String(viewModel.game.players[0].scoreRemaining), name: viewModel.game.players[0].name, average: Int(viewModel.game.players[0].average), active:true)
+                ScoreView(score: String(viewModel.game.players[1].scoreRemaining), name: viewModel.game.players[1].name, average: Int(viewModel.game.players[1].average), active: false)
                 Spacer()
             }
             Text(String(score)).padding()
@@ -35,19 +35,24 @@ struct GameView: View {
     }
     
     
-    fileprivate func ScoreView(score:String, name:String, average:Int) -> some View {
+    fileprivate func ScoreView(score:String, name:String, average:Int, active:Bool) -> some View {
         return VStack(){
             Text(score)
                 .font(.system(size: 60))
                 .padding()
+                .foregroundColor(.white)
+                .background(Color(.darkGray))
+                .cornerRadius(10)
             Text(name)
                 .font(.system(size: 25))
+                .foregroundColor(.white)
             Text("AVG: \(String(average))")
                 .font(.system(size: 20))
+                .foregroundColor(.white)
                 .padding()
         }
         .frame(width: UIScreen.main.bounds.width/2, height: UIScreen.main.bounds.height/2.5, alignment: .top)
-        .background(Color.green)
+      //  .background(Color.green)
     }
     
     
@@ -55,26 +60,26 @@ struct GameView: View {
         return Button(action: {
             print("\(number) pressed.")
             if number.isNumeric{
-                score = score+number
+                score = score.replacingOccurrences(of: " ", with: "")+number
             }
             else{
                 if number == "OK"{
                     viewModel.addScore(score: Int(score) ?? 0)
-                    score = ""
+                    score = " "
                 }
                 if number == "C"{
-                    score = ""
+                    score = " "
                 }
             }
         }) {
             Text(number)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .font(.headline)
-               .foregroundColor(Color.white)
+               .foregroundColor(Color.black)
                .contentShape(Rectangle()) // Add this line
         }
-        .background(LinearGradient(gradient: Gradient(colors: [Color.init("grad1"), Color.init("grad2")]), startPoint: .topLeading, endPoint: .bottomTrailing))
-        .cornerRadius(4)
+        .background(Color.white)
+        .cornerRadius(10)
         .buttonStyle(PlainButtonStyle())
     }
     
