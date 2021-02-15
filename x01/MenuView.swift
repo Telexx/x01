@@ -29,7 +29,7 @@
         NavigationView{
             ZStack{
                
-                NavigationLink(destination: GameSettingsView()
+                NavigationLink(destination: GameSettingsView(gameType: .computer)
                                 .navigationBarItems(
                                     leading:
                                         Text("Game Setup")

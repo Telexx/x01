@@ -33,7 +33,7 @@
                                 .edgesIgnoringSafeArea(.all)
                                , isActive: $viewModel.didOpenSettings) {Text("") }
                 
-                NavigationLink(destination: GameSettingsView()
+                NavigationLink(destination: GameSettingsView(gameType: .computer)
                                 .navigationBarItems(
                                     leading:
                                         Text("Game Setup")
@@ -51,6 +51,25 @@
                                 .navigationBarTitleDisplayMode(.automatic)
                                 .edgesIgnoringSafeArea(.all)
                                , isActive: $viewModel.didStartGameComputer) {Text("") }
+                
+                NavigationLink(destination: GameSettingsView(gameType: .localPlayer)
+                                .navigationBarItems(
+                                    leading:
+                                        Text("Game Setup")
+                                        .padding()
+                                        .foregroundColor(Color(.black)),
+                                    trailing: // Add trailing view
+                                        Image(uiImage: viewModel.avatar)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                                        .edgesIgnoringSafeArea(.all)
+                                )
+                                .navigationBarTitleDisplayMode(.automatic)
+                                .edgesIgnoringSafeArea(.all)
+                               , isActive: $viewModel.didStartGameLocal) {Text("") }
                 
                 LinearGradient(gradient: Gradient(colors: [Color(UIColor(named: "grad1")!), Color(UIColor(named: "grad2")!), Color(UIColor(named: "grad3")!)]), startPoint: .topTrailing, endPoint: .bottomLeading).ignoresSafeArea()
                 VStack(){
