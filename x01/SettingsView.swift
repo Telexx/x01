@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @State private var showingAlert = false
     var body: some View {
-        
         Form {
             Section(header: Text("PROFILE ACTIONS")) {
-                NavigationLink("Edit public profile", destination: EditProfileView())
+                NavigationLink("Edit public profile", destination: EditProfileView(viewModel: EditProfileViewModel()))  .navigationBarTitleDisplayMode(.automatic)
                 Button("Clear game data") {
-                    //do something
+                    showingAlert = true
+                } .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Important message"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
                 }
             }
             Section(header: Text("ABOUT")) {
@@ -25,12 +28,6 @@ struct SettingsView: View {
             Section(header: Text("LEGAL")) {
                 NavigationLink("Terms & Conditions", destination: EditProfileView())
                 NavigationLink("Privacy Policy", destination: EditProfileView())
-            }
-            
-            Section {
-                Button("Save changes") {
-                    // activate theme!
-                }
             }
         }
         

@@ -11,16 +11,18 @@ import Firebase
 import FirebaseStorage
 class Firebase: FirebaseProtocol{
     
+    
     let storage = Storage.storage()
     let defaults = UserDefaults.standard
     
-
+    
     
     func login(username:String, password:String, completion: @escaping (Bool, Error?) -> Void){
         Auth.auth().signIn(withEmail: username, password: password) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
+            guard let strongSelf = self else { return }
             if error == nil{
                 completion(true, nil)
+                self!.updateUserInformation()
             }
             else{
                 completion(false, error)
@@ -39,28 +41,37 @@ class Firebase: FirebaseProtocol{
         }
     }
     
-    func getLoggedInUserInfo(){
-        let user = Auth.auth().currentUser;
-        let name : String
-
-        if (user != nil) {
-            name = (user?.displayName)!
-
+    func updateUserInformation(){
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = "Alec Henderson"
+        changeRequest?.commitChanges { (error) in
+            print("Changes Commited")
         }
+        
     }
     
-    func getLoggedInUserAvatar(completion: @escaping (Bool, Error?) -> Void){
-        let httpsReference = storage.reference(forURL: "gs://x01x-9e0a5.appspot.com/profilepictures/al.jpg")
+    func getLoggedInUserInfo()->User?{
+        let user = Auth.auth().currentUser
+        if let user = user {
+            return user
+        }
+        return nil
+    }
+    
+    func getLoggedInUserAvatar(url:String, completion: @escaping (Bool, Error?) -> Void){
+        let httpsReference =  storage.reference(withPath: "profilepictures/alec.jpg")
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         httpsReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
-          if let error = error {
-            completion(false, error)
-          } else {
-            // Data for "images/island.jpg" is returned
-            self.defaults.set(data!, forKey: "ProfilePicture")
-            completion(true,nil)
-          }
+            if let error = error {
+                completion(false, error)
+            } else {
+                // Data for "images/island.jpg" is returned
+                self.defaults.set(data!, forKey: "ProfilePicture")
+                completion(true,nil)
+            }
         }
     }
     
 }
+
+

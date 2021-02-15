@@ -11,7 +11,7 @@ class GameViewModel: ObservableObject{
     @Published var invalidScore = false
     @Published var gameWon = false
     let game : Game
-    
+    let speech = Speech()
     init(){
         let localPlayer = Player(name: "Alec Henderson", startingScore: 501)
         let otherLocalPlayer = Player(name: "Sophie Mansell", startingScore: 501)
@@ -24,6 +24,7 @@ class GameViewModel: ObservableObject{
         }
         else{
             game.addScore(score: score)
+            speech.talk(phrase: String(score))
             print(gameWon)
             gameWon = game.matchWon
         }

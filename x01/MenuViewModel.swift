@@ -14,11 +14,16 @@ class MenuViewModel: ObservableObject{
     @Published var didStartGameLocal = false
     @Published var didOpenSettings = false
     @Published var avatar = UIImage(systemName: "person.circle.fill")!
-    
+    @Published var firstName = ""
+    @Published var lastName = ""
     
     init (firebase : FirebaseProtocol = Firebase()){
         self.firebase = firebase
-        firebase.getLoggedInUserAvatar { [self] (success, error) in
+       var user = firebase.getLoggedInUserInfo()
+        let fullNameArr = user?.displayName?.split{$0 == " "}.map(String.init)
+        firstName =   fullNameArr?[0] ?? "" // First
+        lastName = fullNameArr?[1] ?? "" // Last
+        firebase.getLoggedInUserAvatar(url: user?.photoURL?.absoluteString ?? "") { [self] (success, error) in
             if error == nil{
                 let avatarData = defaults.data(forKey: "ProfilePicture")!
                 avatar = UIImage(data: avatarData)!

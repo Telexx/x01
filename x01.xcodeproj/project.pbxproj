@@ -33,6 +33,8 @@
 		EAE2F2B025D725F100E6B696 /* FirebaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE2F2AF25D725F100E6B696 /* FirebaseProtocol.swift */; };
 		EAE2F2B525D7269E00E6B696 /* LoginSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE2F2B425D7269E00E6B696 /* LoginSpec.swift */; };
 		EAE2F2BB25D7277800E6B696 /* MockFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE2F2BA25D7277800E6B696 /* MockFirebase.swift */; };
+		EAEFB2E725DB0CB300A2DB96 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFB2E625DB0CB300A2DB96 /* Speech.swift */; };
+		EAEFB2EF25DB164600A2DB96 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFB2EE25DB164600A2DB96 /* EditProfileViewModel.swift */; };
 		EAEFDEFC25D086490060C661 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFDEFB25D086490060C661 /* MenuView.swift */; };
 		FA5A533B339575EC61C1D911 /* Pods_x01Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554645ABE85513C7011E462F /* Pods_x01Tests.framework */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,8 @@
 		EAE2F2AF25D725F100E6B696 /* FirebaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProtocol.swift; sourceTree = "<group>"; };
 		EAE2F2B425D7269E00E6B696 /* LoginSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSpec.swift; sourceTree = "<group>"; };
 		EAE2F2BA25D7277800E6B696 /* MockFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebase.swift; sourceTree = "<group>"; };
+		EAEFB2E625DB0CB300A2DB96 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
+		EAEFB2EE25DB164600A2DB96 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		EAEFDEFB25D086490060C661 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		FB4C04C5D1F3B6E55FDB3AAA /* Pods_x01_x01UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_x01_x01UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,6 +168,7 @@
 		EA83154C25D0523300218E51 /* x01 */ = {
 			isa = PBXGroup;
 			children = (
+				EAEFB2E525DB0CA700A2DB96 /* Classes */,
 				EA35B92125D9A09100BDE0DC /* x01.entitlements */,
 				EAE2F2A925D7255200E6B696 /* Firebase */,
 				EAE2F2A025D7251200E6B696 /* View */,
@@ -174,7 +179,6 @@
 				EA83155325D0523400218E51 /* Preview Content */,
 				EAE2F27125D7233900E6B696 /* GoogleService-Info.plist */,
 				EAE2F28E25D7246800E6B696 /* AppDelegate.swift */,
-				EA35B92825D9B4DD00BDE0DC /* Game.swift */,
 				EA35B93725D9C64E00BDE0DC /* String+IsNumber.swift */,
 			);
 			path = x01;
@@ -215,6 +219,7 @@
 				EAE2F2A125D7252F00E6B696 /* LoginViewModel.swift */,
 				EACC7D9625D950B30027D897 /* MenuViewModel.swift */,
 				EA35B93225D9C3A400BDE0DC /* GameViewModel.swift */,
+				EAEFB2EE25DB164600A2DB96 /* EditProfileViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -249,6 +254,15 @@
 				EAE2F2BA25D7277800E6B696 /* MockFirebase.swift */,
 			);
 			name = Mocks;
+			sourceTree = "<group>";
+		};
+		EAEFB2E525DB0CA700A2DB96 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EA35B92825D9B4DD00BDE0DC /* Game.swift */,
+				EAEFB2E625DB0CB300A2DB96 /* Speech.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		F09386EA73FC7BADE10B0527 /* Frameworks */ = {
@@ -500,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE2F2AB25D7255E00E6B696 /* Firebase.swift in Sources */,
+				EAEFB2EF25DB164600A2DB96 /* EditProfileViewModel.swift in Sources */,
 				EA35B92925D9B4DD00BDE0DC /* Game.swift in Sources */,
 				EAE2F28F25D7246800E6B696 /* AppDelegate.swift in Sources */,
 				EA83155025D0523300218E51 /* ContentView.swift in Sources */,
@@ -508,6 +523,7 @@
 				EACC7DD625D979AA0027D897 /* MenuView2.swift in Sources */,
 				EAE2F2B025D725F100E6B696 /* FirebaseProtocol.swift in Sources */,
 				EACC7D7125D93FA90027D897 /* GameView.swift in Sources */,
+				EAEFB2E725DB0CB300A2DB96 /* Speech.swift in Sources */,
 				EACC7D6425D939810027D897 /* SignupView.swift in Sources */,
 				EAEFDEFC25D086490060C661 /* MenuView.swift in Sources */,
 				EA35B93825D9C64E00BDE0DC /* String+IsNumber.swift in Sources */,

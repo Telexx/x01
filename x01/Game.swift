@@ -12,6 +12,7 @@ class Game{
     private var startingScore : Int
     var players: [Player]
     var turnIndex: Int
+
     var bestOf : Int
     var legWon:Bool{
         if players[0].scoreRemaining == 0{
@@ -85,12 +86,17 @@ enum OpponentType{
 class Player{
     var legs = 0
     var name: String
+    var speech = Speech()
     var startingScore: Int
     var scores = [Int]()
     var scoreRemaining: Int{
         var remaining = startingScore
         for score in scores{
             remaining = remaining - score
+        }
+        if remaining == 0{
+            sleep(2)
+            speech.talk(phrase: "Game, shot, and the leg.")
         }
         return remaining
     }

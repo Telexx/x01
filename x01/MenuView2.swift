@@ -78,8 +78,10 @@
                         .resizable()
                         .scaledToFill()
                         .frame(width: 60, height: 60)
+                            
                         .clipShape(Circle())
                             .overlay(Circle().stroke(Color.white, lineWidth: 3)).padding()
+                            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             Spacer()
                         Button(action: {
                             print("Edit button was tapped")
@@ -96,11 +98,11 @@
                     HStack{
                         VStack{
     
-                            HStack{Text("Adrian").font(.system(size: 70, weight: .semibold, design: .default)).foregroundColor(.white)
+                            HStack{Text((viewModel.firstName)).font(.system(size: 70, weight: .semibold, design: .default)).foregroundColor(.white).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                             //    Spacer()
                                 Spacer()
                             }
-                            HStack{Text("Lewis").font(.system(size: 50, weight: .semibold, design: .default)).foregroundColor(.white)
+                            HStack{Text(viewModel.lastName).font(.system(size: 50, weight: .semibold, design: .default)).foregroundColor(.white).shadow(radius: 7)
                                 Spacer()
                                 
                             }
@@ -126,13 +128,13 @@
                     .scaledToFill()
                     VStack (){
                         HStack{
-                            MenuButton(index: 0, text: "Play Computer", image: "desktopcomputer")
-                            MenuButton(index: 1, text: "Play Local", image: "person.fill")
+                            MenuButton(index: 0, text: "Play Computer", image: "desktopcomputer").shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            MenuButton(index: 1, text: "Play Local", image: "person.fill").shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
    
                         }.padding(.bottom)
                         HStack{
-                            MenuButton(index: 2, text: "Play Online", image: "network")
-                            MenuButton(index: 3, text: "View Stats", image: "chart.bar.xaxis")
+                            MenuButton(index: 2, text: "Play Online", image: "network").shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                            MenuButton(index: 3, text: "View Stats", image: "chart.bar.xaxis").shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
   
                         }.padding(.bottom)
                     }.padding()
