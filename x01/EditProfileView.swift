@@ -20,7 +20,7 @@ struct EditProfileView: View {
         VStack{
         HStack{
             Spacer()
-            Image(uiImage: UIImage(named: "phil")!).resizable().scaledToFill().frame(width: 150, height:150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).clipShape(Circle())  .overlay(Circle().stroke(Color.white, lineWidth: 2)).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/).padding(.top)
+            Image(uiImage: UIImage(named: "phil")!).resizable().scaledToFill().frame(width: 150, height:150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).clipShape(Circle())  .overlay(Circle().stroke(Color.white, lineWidth: 2)).shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/).padding(.top).padding(.bottom, 10)
             Spacer()
         }
             Spacer()
