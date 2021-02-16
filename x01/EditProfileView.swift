@@ -47,7 +47,7 @@ struct EditProfileView: View {
             }
             Section {
                 Button("Save changes") {
-                    // activate theme!
+                    viewModel.saveData()
                 }
             }
         }

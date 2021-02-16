@@ -14,7 +14,7 @@ class Firebase: FirebaseProtocol{
     
     let storage = Storage.storage()
     let defaults = UserDefaults.standard
-    
+    let db = Firestore.firestore()
     
     
     func login(username:String, password:String, completion: @escaping (Bool, Error?) -> Void){
@@ -58,6 +58,36 @@ class Firebase: FirebaseProtocol{
         return nil
     }
     
+    func saveDocument(documentId:String?, data:[String:Any], collection:String){
+        var ref: DocumentReference? = nil
+        var docid: String
+        if let userId = Auth.auth().currentUser?.uid {
+            db.collection(collection).document(documentId ?? userId).setData(data) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+        }
+    }
+    
+    func readDocument(documentId:String?, collection:String, completion: @escaping ([String:Any]?, Error?) -> Void){
+        if let userId = Auth.auth().currentUser?.uid {
+        let docRef = db.collection(collection).document(documentId ?? userId)
+
+            docRef.getDocument { [self] (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                completion(document.data() as [String : AnyObject]? ?? [:], nil)
+            } else {
+                completion(nil, error)
+            }
+            }
+        }
+    }
+    
     func getLoggedInUserAvatar(url:String, completion: @escaping (Bool, Error?) -> Void){
         let httpsReference =  storage.reference(withPath: "profilepictures/alec.jpg")
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
@@ -71,6 +101,18 @@ class Firebase: FirebaseProtocol{
             }
         }
     }
+    
+    func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+       if let data = text.data(using: .utf8) {
+           do {
+               let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject]
+               return json
+           } catch {
+               print("Something went wrong")
+           }
+       }
+       return nil
+   }
     
 }
 

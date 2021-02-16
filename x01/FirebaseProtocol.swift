@@ -12,4 +12,6 @@ protocol FirebaseProtocol{
     func register(username:String, password:String, completion: @escaping (Bool, Error?) -> Void)
     func getLoggedInUserInfo()->User?
     func getLoggedInUserAvatar(url:String,completion: @escaping (Bool, Error?) -> Void)
+    func saveDocument(documentId:String?, data:[String:Any], collection:String)
+    func readDocument(documentId:String?, collection:String, completion: @escaping ([String:Any]?, Error?) -> Void)
 }

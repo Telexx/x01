@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
-
+import Firebase
 @main
 struct x01App: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     
     init(){
-        
+
     }
     
     var body: some Scene {

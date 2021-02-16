@@ -9,6 +9,7 @@ target 'x01' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
   target 'x01Tests' do
     inherit! :search_paths
     # Pods for testing
